@@ -80,7 +80,7 @@ Drawerが表示された状態ではタイトルバーのボタンの操作は�
 
 ## Dependency Library
 
-[MaterialDesignInXamlToolkit]([MaterialDesignInXAML/MaterialDesignInXamlToolkit: Google's Material Design in XAML & WPF, for C# & VB.Net. (github.com)](https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit))
+[MaterialDesignInXamlToolkit](https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit)
 
 ```text
 The MIT License (MIT)
