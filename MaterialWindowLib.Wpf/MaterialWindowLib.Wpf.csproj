@@ -4,7 +4,26 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Copyright>Copyright (c) 2022 StdEnku</Copyright>
+    <PackageProjectUrl>https://github.com/StdEnku/MaterialWindowLib</PackageProjectUrl>
+    <PackageIcon>logo.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/StdEnku/MaterialWindowLib</RepositoryUrl>
+    <PackageTags>WPF; Material Design;</PackageTags>
+    <AssemblyVersion>0.0.0</AssemblyVersion>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\img\logo.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="MaterialDesignThemes" Version="4.5.0" />
