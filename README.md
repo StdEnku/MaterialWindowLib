@@ -2,6 +2,8 @@
 ![Nuget](https://img.shields.io/nuget/dt/MaterialWindowLib.Wpf?label=Nuget&logo=Nuget&style=social)
 ![dotnet](https://img.shields.io/badge/dotnet-6-blueviolet)
 
+[Nuget](https://www.nuget.org/packages/MaterialWindowLib.Wpf)
+
 ## 概要
 
 本ライブラリはWPFにおいてマテリアルデザインを取り入れたタイトルバーを含む
