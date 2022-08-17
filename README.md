@@ -1,5 +1,6 @@
 ![img1](./img/img1.png)  
-![Nuget](https://img.shields.io/nuget/dt/MaterialWindowLib.Wpf?label=Nuget&logo=Nuget&style=social)https://img.shields.io/badge/dotnet-6-blueviolet
+![Nuget](https://img.shields.io/nuget/dt/MaterialWindowLib.Wpf?label=Nuget&logo=Nuget&style=social)
+![dotnet](https://img.shields.io/badge/dotnet-6-blueviolet)
 
 ## 概要
 
