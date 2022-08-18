@@ -17,7 +17,7 @@
 下記コードのようにMaterialWindow要素を使用すると下記写真のような
 ウィンドウを作成できる。
 
-### MainWinodwのサンプルコード
+### MainWinodw.xaml
 
 ```xaml
 <mw:MaterialWindow ~省略~
@@ -37,6 +37,22 @@
 </mw:MaterialWindow>
 ```
 
+### MainWinodw.xalm.cs
+
+```c#
+namespace WpfApp;
+
+using MaterialWindowLib.Wpf.Controls;
+
+public partial class MainWindow : MaterialWindow
+{
+    public MainWindow()
+    {
+        InitializeComponent();
+    }
+}
+```
+
 ### 結果
 
 ![img2](./img/img4.png)
@@ -49,7 +65,7 @@
 MaterialDesignInXamlToolkitのスタイルを適用した状態で本ウィンドウを表示すると
 下記のように表示される。
 
-### App.xamlのコード
+### App.xaml
 
 ```xaml
 <Application ~省略~
@@ -66,10 +82,11 @@ MaterialDesignInXamlToolkitのスタイルを適用した状態で本ウィン�
 </Application>
 ```
 
-### MainWindow.xamlのコード
+### MainWindow.xaml
 
 ```xaml
 <mw:MaterialWindow ~省略~
+                   xmlns:mw="http://StdEnku/MaterialWindowLib/Wpf"
                    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
                    TextElement.Foreground="{DynamicResource MaterialDesignBody}"
                    TextElement.FontWeight="Regular"
@@ -92,6 +109,22 @@ MaterialDesignInXamlToolkitのスタイルを適用した状態で本ウィン�
         <Label Content="Hello World" />
     </Viewbox>
 </mw:MaterialWindow>
+```
+
+### MainWinodw.xalm.cs
+
+```c#
+namespace WpfApp;
+
+using MaterialWindowLib.Wpf.Controls;
+
+public partial class MainWindow : MaterialWindow
+{
+    public MainWindow()
+    {
+        InitializeComponent();
+    }
+}
 ```
 
 ### 結果
