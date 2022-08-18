@@ -219,7 +219,7 @@ public class MaterialWindow : Window
             "TitlebarBackground",
             typeof(Brush),
             typeof(MaterialWindow),
-            new PropertyMetadata(Brushes.Transparent)
+            new PropertyMetadata(Brushes.LightGray)
         );
 
     /// <summary>

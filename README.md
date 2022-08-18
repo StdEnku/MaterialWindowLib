@@ -9,26 +9,13 @@
 本ライブラリはWPFにおいてマテリアルデザインを取り入れたタイトルバーを含む
 ウィンドウを提供するライブラリである。
 
-導入すると下記コードのようにMaterialWindow要素を使用できるようになる
+---
 
-### App.xamlのサンプルコード
+## MaterialDesignInXamlToolkitのスタイルを適用せずに使用する
 
-```xaml
-<Application ~省略~
-             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
-
-    <Application.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <materialDesign:BundledTheme BaseTheme="Dark" PrimaryColor="DeepPurple" SecondaryColor="Lime" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </Application.Resources>
-</Application>
-```
-
-
+本ライブラリに依存するMaterialDesignInXamlToolkitのスタイルを適用せずに
+下記コードのようにMaterialWindow要素を使用すると下記写真のような
+ウィンドウを作成できる。
 
 ### MainWinodwのサンプルコード
 
@@ -52,7 +39,66 @@
 
 ### 結果
 
-![img2](./img/img2.png)
+![img2](./img/img4.png)
+
+---
+
+## MaterialDesignInXamlToolkitのスタイルを適用して使用する
+
+[Super Quick Start · MaterialDesignInXAML](https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit/wiki/Super-Quick-Start)に書かれている方法に沿って
+MaterialDesignInXamlToolkitのスタイルを適用した状態で本ウィンドウを表示すると
+下記のように表示される。
+
+### App.xamlのコード
+
+```xaml
+<Application ~省略~
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <materialDesign:BundledTheme BaseTheme="Dark" PrimaryColor="DeepPurple" SecondaryColor="Lime" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
+```
+
+### MainWindow.xamlのコード
+
+```xaml
+<mw:MaterialWindow ~省略~
+                   xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+                   TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+                   TextElement.FontWeight="Regular"
+                   TextElement.FontSize="13"
+                   TextOptions.TextFormattingMode="Ideal" 
+                   TextOptions.TextRenderingMode="Auto"        
+                   Background="{DynamicResource MaterialDesignPaper}"
+                   FontFamily="{DynamicResource MaterialDesignFont}"
+                   TitlebarBackground="{DynamicResource PrimaryHueMidBrush}">
+
+    <mw:MaterialWindow.TitlebarLeftContent>
+        <Label Content="Hoge" FontSize="20" />
+    </mw:MaterialWindow.TitlebarLeftContent>
+    
+    <mw:MaterialWindow.TitlebarCenterContent>
+        <Label Content="Fuga" FontSize="20" />
+    </mw:MaterialWindow.TitlebarCenterContent>
+
+    <Viewbox>
+        <Label Content="Hello World" />
+    </Viewbox>
+</mw:MaterialWindow>
+```
+
+### 結果
+
+![img4](./img/img2.png)
+
+---
 
 ## MaterialWindowクラスの概要
 
@@ -64,7 +110,7 @@
 | ButtonIconSize        | double    | ボタン内のアイコンサイズを指定するための依存関係プロパティ   | 25                       |
 | TitlebarLeftContent   | object    | タイトルバー左端のコンテンツ指定用依存関係プロパティ         | null                     |
 | TitlebarCenterContent | object    | タイトルバー中央のコンテンツ指定用依存関係プロパティ         | null                     |
-| TitlebarBackground    | Brush     | タイトルバーの背景用ブラシ依存関係プロパティ                 | PrimaryHueMidBrush       |
+| TitlebarBackground    | Brush     | タイトルバーの背景用ブラシ依存関係プロパティ                 | Brushes.LightGray        |
 | ResizeBorderThickness | Thickness | リサイズ用領域の範囲指定用依存関係プロパティ                 | Thickness(10, 0, 10, 10) |
 | IsBottomDrawerShow    | bool      | 画面下部のDrawerを表示するかどうか指定するための依存関係プロパティ | false                    |
 | BottomDrawerText      | string    | 画面下部のDrawerに表示する文字列を指定するための依存関係プロパティ | string.Empty             |

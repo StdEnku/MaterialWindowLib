@@ -11,7 +11,8 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/StdEnku/MaterialWindowLib</RepositoryUrl>
     <PackageTags>WPF; Material Design;</PackageTags>
-    <AssemblyVersion>0.0.0</AssemblyVersion>
+    <AssemblyVersion>0.0.1</AssemblyVersion>
+    <Version>0.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
