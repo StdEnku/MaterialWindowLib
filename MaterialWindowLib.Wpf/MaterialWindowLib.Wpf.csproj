@@ -13,9 +13,15 @@
     <PackageTags>WPF; Material Design;</PackageTags>
     <AssemblyVersion>0.0.1</AssemblyVersion>
     <Version>0.0.1</Version>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <Description>マテリアルデザインを適用したウィンドウコントロールを提供するライブラリ</Description>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
     <None Include="..\img\logo.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
