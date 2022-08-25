@@ -1,6 +1,5 @@
 ﻿namespace MaterialWindowLib.Wpf.Controls;
 
-
 using System;
 using System.Windows;
 using System.Windows.Shell;
