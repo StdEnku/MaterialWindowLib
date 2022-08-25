@@ -14,8 +14,15 @@
                    Background="{DynamicResource MaterialDesignPaper}"
                    FontFamily="{DynamicResource MaterialDesignFont}"
                    TitlebarBackground="{DynamicResource PrimaryHueMidBrush}"
+                   LoadedCommand="{Binding LoadedCommand}"
+                   IsBottomDrawerShow="{Binding IsBottomDrawerShow}"
+                   BottomDrawerText="{Binding BottomDrawerText}"
                    mc:Ignorable="d"
                    Title="Demo">
+
+    <mw:MaterialWindow.DataContext>
+        <local:MainWindowViewModel />
+    </mw:MaterialWindow.DataContext>
 
     <mw:MaterialWindow.TitlebarLeftContent>
         <Label Content="Hoge" FontSize="20" />

@@ -6,6 +6,7 @@ using System.Windows.Shell;
 using System.Windows.Controls;
 using System.Windows.Media;
 using MaterialWindowLib.Wpf.Properties;
+using System.Windows.Input;
 
 /// <summary>
 /// マテリアルデザインを適用したウィンドウ
@@ -56,6 +57,9 @@ public class MaterialWindow : Window
         minimizeButton.Click += this.onMinimizeButtonClicked;
         stateChangeButton.Click += this.onStateChangeButtonClicked;
         exitButton.Click += this.onExitButtonClicked;
+
+        // LoadedCommand実行
+        this.LoadedCommand?.Execute(this.LoadedCommandParameter);
     }
     #endregion
 
@@ -324,6 +328,50 @@ public class MaterialWindow : Window
     {
         get => (double)this.GetValue(BottomDrawerTextSizeProperty);
         set => this.SetValue(BottomDrawerTextSizeProperty, value);
+    }
+    #endregion
+
+    #region Loaded時に実行されるコマンド
+    /// <summary>
+    /// Loaded時に実行されるコマンド
+    /// </summary>
+    public static readonly DependencyProperty LoadedCommandProperty
+        = DependencyProperty.Register(
+            "LoadedCommand",
+            typeof(ICommand),
+            typeof(MaterialWindow),
+            new PropertyMetadata(null)
+        );
+
+    /// <summary>
+    /// LoadedCommandProperty用CLRプロパティ
+    /// </summary>
+    public ICommand? LoadedCommand
+    {
+        get => (ICommand?)this.GetValue(LoadedCommandProperty);
+        set => this.SetValue(LoadedCommandProperty, value);
+    }
+    #endregion
+
+    #region Loaded時に実行されるコマンド用パラメータ
+    /// <summary>
+    /// Loaded時に実行されるコマンド用パラメータ
+    /// </summary>
+    public static readonly DependencyProperty LoadedCommandParameterProperty
+        = DependencyProperty.Register(
+            "LoadedCommandParameter",
+            typeof(object),
+            typeof(MaterialWindow),
+            new PropertyMetadata(null)
+        );
+
+    /// <summary>
+    /// LoadedCommandParameterProperty用CLRプロパティ
+    /// </summary>
+    public object? LoadedCommandParameter
+    {
+        get => this.GetValue(LoadedCommandParameterProperty);
+        set => this.SetValue(LoadedCommandParameterProperty, value);
     }
     #endregion
 }
