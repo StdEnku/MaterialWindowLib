@@ -137,17 +137,20 @@ public partial class MainWindow : MaterialWindow
 
 ### プロパティ
 
-| プロパティ名          | 型        | 備考                                                         | 規定値                   |
-| --------------------- | --------- | ------------------------------------------------------------ | ------------------------ |
-| TitlebarHeight        | double    | タイトルバーの高さを指定するための依存関係プロパティ         | 40                       |
-| ButtonIconSize        | double    | ボタン内のアイコンサイズを指定するための依存関係プロパティ   | 25                       |
-| TitlebarLeftContent   | object    | タイトルバー左端のコンテンツ指定用依存関係プロパティ         | null                     |
-| TitlebarCenterContent | object    | タイトルバー中央のコンテンツ指定用依存関係プロパティ         | null                     |
-| TitlebarBackground    | Brush     | タイトルバーの背景用ブラシ依存関係プロパティ                 | Brushes.LightGray        |
-| ResizeBorderThickness | Thickness | リサイズ用領域の範囲指定用依存関係プロパティ                 | Thickness(10, 0, 10, 10) |
-| IsBottomDrawerShow    | bool      | 画面下部のDrawerを表示するかどうか指定するための依存関係プロパティ | false                    |
-| BottomDrawerText      | string    | 画面下部のDrawerに表示する文字列を指定するための依存関係プロパティ | string.Empty             |
-| BottomDrawerTextSize  | double    | 画面下部のDrawerに表示する文字列のサイズ指定するための依存関係プロパティ | 20                       |
+| プロパティ名           | 型        | 備考                                                         | 規定値                                     |
+| ---------------------- | --------- | ------------------------------------------------------------ | ------------------------------------------ |
+| TitlebarHeight         | double    | タイトルバーの高さを指定するための依存関係プロパティ         | 40                                         |
+| ButtonIconSize         | double    | ボタン内のアイコンサイズを指定するための依存関係プロパティ   | 25                                         |
+| TitlebarLeftContent    | object    | タイトルバー左端のコンテンツ指定用依存関係プロパティ         | null                                       |
+| TitlebarCenterContent  | object    | タイトルバー中央のコンテンツ指定用依存関係プロパティ         | null                                       |
+| TitlebarBackground     | Brush     | タイトルバーの背景用ブラシ依存関係プロパティ                 | Brushes.LightGray                          |
+| ResizeBorderThickness  | Thickness | リサイズ用領域の範囲指定用依存関係プロパティ                 | Thickness(10, 0, 10, 10)                   |
+| IsBottomDrawerShow     | bool      | 画面下部のDrawerを表示するかどうか指定するための依存関係プロパティ | false                                      |
+| BottomDrawerText       | string    | 画面下部のDrawerに表示する文字列を指定するための依存関係プロパティ | string.Empty                               |
+| BottomDrawerTextSize   | double    | 画面下部のDrawerに表示する文字列のサイズ指定するための依存関係プロパティ | 20                                         |
+| LoadedCommand          | ICommand  | Loaded時に実行されるコマンド                                 | null                                       |
+| LoadedCommandParameter | object    | Loaded時に実行されるコマンド用パラメータ                     | null                                       |
+| ExitButtonCommand      | ICommand  | 終了ボタン押下時に実行されるコマンド                         | 実行時にアプリケーションを終了するコマンド |
 
 ## 画面下部のDrawerの概要
 
@@ -160,6 +163,13 @@ IsBottomDrawerShowプロパティで表示のON/OFFを切り替える事が可�
 
 Drawerが表示された状態ではタイトルバーのボタンの操作はロックされるので
 アプリの終了を拒否したいセーブ時などに使用すると有効である。
+
+## 注意点
+
+ExitButtonCommand依存関係プロパティに自作のコマンドをバインドした場合
+そのコマンド内でアプリケーションを終了する処理を書かなければ
+アプリケーションを終了することはできないので
+別途アプリケーション終了用ViewServiceを組んでそのコマンド内から呼び出してください。
 
 ## Dependency Library
 
