@@ -12,7 +12,7 @@
     <RepositoryUrl>https://github.com/StdEnku/MaterialWindowLib</RepositoryUrl>
     <PackageTags>WPF; Material Design;</PackageTags>
     <AssemblyVersion>0.0.1</AssemblyVersion>
-    <Version>0.0.1</Version>
+    <Version>0.0.2</Version>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <Description>マテリアルデザインを適用したウィンドウコントロールを提供するライブラリ</Description>
   </PropertyGroup>
