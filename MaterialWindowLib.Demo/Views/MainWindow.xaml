@@ -5,6 +5,7 @@
                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                    xmlns:mw="http://StdEnku/MaterialWindowLib/Wpf"
                    xmlns:local="clr-namespace:MaterialWindowLib.Demo"
+                   xmlns:vm="clr-namespace:MaterialWindowLib.Demo.ViewModels"
                    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
                    TextElement.Foreground="{DynamicResource MaterialDesignBody}"
                    TextElement.FontWeight="Regular"
@@ -17,12 +18,9 @@
                    LoadedCommand="{Binding LoadedCommand}"
                    IsBottomDrawerShow="{Binding IsBottomDrawerShow}"
                    BottomDrawerText="{Binding BottomDrawerText}"
+                   ExitButtonCommand="{Binding ExitButtonClickedCommand}"
                    mc:Ignorable="d"
                    Title="Demo">
-
-    <mw:MaterialWindow.DataContext>
-        <local:MainWindowViewModel />
-    </mw:MaterialWindow.DataContext>
 
     <mw:MaterialWindow.TitlebarLeftContent>
         <Label Content="Hoge" FontSize="20" />

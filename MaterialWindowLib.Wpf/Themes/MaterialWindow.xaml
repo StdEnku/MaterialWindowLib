@@ -98,7 +98,7 @@
                                             Width="{TemplateBinding ButtonIconSize}" />
                                     </Button>
                                     <Button Name="StateChangeButton" />
-                                    <Button Name="ExitButton">
+                                    <Button Name="ExitButton" Command="{TemplateBinding ExitButtonCommand}">
                                         <materialDesign:PackIcon 
                                             Kind="Power" 
                                             Height="{TemplateBinding ButtonIconSize}"

@@ -1,4 +1,4 @@
-﻿namespace MaterialWindowLib.Demo;
+﻿namespace MaterialWindowLib.Demo.Commands;
 
 using System;
 using System.Windows.Input;
@@ -11,23 +11,23 @@ public class DelegateCommand : ICommand
 
     public DelegateCommand(Action execute, Func<bool>? canExecute = null)
     {
-        this._execute = execute;
-        this._canExecute = canExecute;
+        _execute = execute;
+        _canExecute = canExecute;
     }
 
     public bool CanExecute(object? parameter)
     {
-        var result = this._canExecute is not null ? this._canExecute() : true;
+        var result = _canExecute is not null ? _canExecute() : true;
         return result;
     }
 
     public void RaiseCanExecuteChanged()
     {
-        this.CanExecuteChanged?.Invoke(this, EventArgs.Empty);
+        CanExecuteChanged?.Invoke(this, EventArgs.Empty);
     }
 
     public void Execute(object? parameter)
     {
-        this._execute();
+        _execute();
     }
 }

@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using MaterialWindowLib.Wpf.Properties;
 using System.Windows.Input;
+using MaterialWindowLib.Wpf.Commands;
 
 /// <summary>
 /// マテリアルデザインを適用したウィンドウ
@@ -56,7 +57,6 @@ public class MaterialWindow : Window
         // 各種クリックイベントを登録
         minimizeButton.Click += this.onMinimizeButtonClicked;
         stateChangeButton.Click += this.onStateChangeButtonClicked;
-        exitButton.Click += this.onExitButtonClicked;
 
         // LoadedCommand実行
         this.LoadedCommand?.Execute(this.LoadedCommandParameter);
@@ -69,14 +69,12 @@ public class MaterialWindow : Window
         // タイトルバー右端のボタンへの参照取得
         var minimizeButton = (Button)this.Template.FindName("MinimizeButton", this);
         var stateChangeButton = (Button)this.Template.FindName("StateChangeButton", this);
-        var exitButton = (Button)this.Template.FindName("ExitButton", this);
 
         // イベントハンドラ解除
         this.Loaded -= this.onLoaded;
         this.Closed -= this.onClosed;
         minimizeButton.Click -= this.onMinimizeButtonClicked;
         stateChangeButton.Click -= this.onStateChangeButtonClicked;
-        exitButton.Click -= this.onExitButtonClicked;
 
         // Windowの位置とサイズと状態の保存
         if (this.WindowState == WindowState.Normal)
@@ -107,13 +105,6 @@ public class MaterialWindow : Window
     {
         var nextState = this.WindowState == WindowState.Normal ? WindowState.Maximized : WindowState.Normal;
         this.WindowState = nextState;
-    }
-    #endregion
-
-    #region 終了ボタン押下時の処理
-    private void onExitButtonClicked(object sender, RoutedEventArgs e)
-    {
-        Application.Current.Shutdown();
     }
     #endregion
 
@@ -372,6 +363,34 @@ public class MaterialWindow : Window
     {
         get => this.GetValue(LoadedCommandParameterProperty);
         set => this.SetValue(LoadedCommandParameterProperty, value);
+    }
+    #endregion
+
+    #region 終了ボタン用コマンド
+    /// <summary>
+    /// 終了ボタン用コマンド
+    /// </summary>
+    /// <remarks>
+    /// 注意:既定値のコマンドではクリック時にアプリケーションを終了するが
+    /// 自作したコマンドを本依存関係プロパティにバインドする場合
+    /// アプリケーションを終了する処理をその中に組み込まなければ
+    /// 終了できない。
+    /// </remarks>
+    public static readonly DependencyProperty ExitButtonCommandProperty
+        = DependencyProperty.Register(
+            "ExitButtonCommand",
+            typeof(ICommand),
+            typeof(MaterialWindow),
+            new PropertyMetadata(new ExitButtonCommand())
+        );
+
+    /// <summary>
+    /// ExitButtonCommandProperty用CLRプロパティ
+    /// </summary>
+    public ICommand? ExitButtonCommand
+    {
+        get => (ICommand?)this.GetValue(ExitButtonCommandProperty);
+        set => this.SetValue(ExitButtonCommandProperty, value);
     }
     #endregion
 }
